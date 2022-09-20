@@ -1,18 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import logo from "./Image/logo.jpg";
 import image1 from "./Image/image 1.jpg";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./home.css";
 
 function Home() {
-  const [section2, setSection2] = useState("col-md-5");
-  const [section3, setSection3] = useState("col-md-5");
+  const [section2, setSection2] = useState("col-md-4");
+  const [section3, setSection3] = useState("col-md-6");
 
-  useEffect(() => {
-    window.onscroll = function () {
-      scrollFunction();
-    };
-  }, []);
 
   window.onscroll = () => {
     scrollFunction();
@@ -25,17 +20,7 @@ function Home() {
     ) {
       document.getElementById("header").style.fontSize = "60px";
       document.getElementById("header").style.marginLeft = "-5px";
-      document.getElementById("page2").style.marginTop = "1050px";
-      document.getElementById("page2").style.marginTop = "60px";
-      document.getElementById("page2").style.transitionDelay = "3s";
-      document.getElementById("tx").style.fontSize = "20px";
-      document.getElementById("tx").style.marginTop = "-220px";
-      document.getElementById("tx").style.transitionDelay = "1s";
-      document.getElementById("date").style.fontSize = "18px";
-      document.getElementById("date").style.position = "fixed";
-      document.getElementById("date").style.top = "20px";
-      document.getElementById("date").style.transition = "2.5s";
-      document.getElementById("date").style.transitionDelay = "2s";
+      document.getElementById("page2").style.marginTop = "1000px";
     } else {
       document.getElementById("header").style.fontSize = "200px";
       document.getElementById("header").style.marginLeft = "-17px";
@@ -45,47 +30,90 @@ function Home() {
       document.getElementById("tx").style.marginTop = "10px";
       document.getElementById("tx").style.transitionDelay = "0s";
       document.getElementById("date").style.position = "fixed";
-      document.getElementById("date").style.top = "600px";
+      document.getElementById("date").style.top = "90%";
       document.getElementById("date").style.fontSize = "18px";
       document.getElementById("date").style.transitionDelay = "0s";
       document.getElementById("date").style.transition = "1s";
     }
-
+    if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
+      document.getElementById("tx").style.fontSize = "20px";
+      document.getElementById("tx").style.marginTop = "-220px";
+    }
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      document.getElementById("date").style.fontSize = "18px";
+      document.getElementById("date").style.position = "fixed";
+      document.getElementById("date").style.top = "20px";
+      document.getElementById("date").style.transition = "2.5s";
+    }
+    if(document.body.scrollTop > 300 || document.documentElement.scrollTop > 300){
+      document.getElementById("page2").style.marginTop = "380px";
+    }
+    if(document.body.scrollTop > 400 || document.documentElement.scrollTop > 400){
+      document.getElementById("page2").style.marginTop = "-220px";
+    }
     if (
-      document.body.scrollTop > 600 ||
-      document.documentElement.scrollTop > 600
-    ) {
+      document.body.scrollTop > 450 ||
+      document.documentElement.scrollTop > 450) {
       setSection2("col-md-7");
       setSection3("col-md-3");
     } else {
+      setSection2("col-md-4");
+      setSection3("col-md-6");
+    }
+    if(document.body.scrollTop > 500 || document.documentElement.scrollTop > 500){
+      document.getElementById("page3").style.marginTop = "30%";
+    }else if(document.body.scrollTop > 450 || document.documentElement.scrollTop > 450){
+      document.getElementById("page3").style.marginTop = "100%";
+    }
+    if (
+      document.body.scrollTop > 650 ||
+      document.documentElement.scrollTop > 650
+    ) {
+      document.getElementById("page3").style.marginTop = "-106%";
       setSection2("col-md-5");
       setSection3("col-md-5");
     }
     if (
-      document.body.scrollTop > 1000 ||
-      document.documentElement.scrollTop > 1000
-    ) {
-      setSection2("col-md-5");
-      setSection3("col-md-5");
-    } else if (
-      document.body.scrollTop > 20000 ||
-      document.documentElement.scrollTop > 2000
-    ) {
-      setSection2("col-md-7");
-      setSection3("col-md-3");
-    }
-    if (
-      document.body.scrollTop > 700 ||
-      document.documentElement.scrollTop > 700
+      document.body.scrollTop > 650 ||
+      document.documentElement.scrollTop > 650
     ) {
       document.getElementById("tx").style.display = "none";
     } else {
       document.getElementById("tx").style.display = "block";
     }
+    if (
+        document.body.scrollTop > 750 ||
+        document.documentElement.scrollTop > 750
+    ) {
+      document.getElementById("page4").style.marginTop = "35%";
+      document.getElementById("page4text").style.marginTop = "950px";
+    }else if (document.body.scrollTop > 650 ||
+        document.documentElement.scrollTop > 650){
+      document.getElementById("page4").style.marginTop = "130%";
+      document.getElementById("page4text").style.marginTop = "1600px";
+    }
+    if (
+        document.body.scrollTop > 850 ||
+        document.documentElement.scrollTop > 850
+    ) {
+      document.getElementById("page4").style.marginTop = "-100%";
+      document.getElementById("page4text").style.marginTop = "-200px";
+    }
+    if (
+        document.body.scrollTop > 900 ||
+        document.documentElement.scrollTop > 900
+    ) {
+      document.getElementById("page5Img").style.marginTop = "130%";
+      document.getElementById("page5text").style.marginTop = "50%";
+    }else if(document.body.scrollTop > 800 ||
+        document.documentElement.scrollTop > 800){
+      document.getElementById("page5Img").style.marginTop = "230%";
+      document.getElementById("page5text").style.marginTop = "150%";
+    }
   };
 
   return (
-    <div className="container-100%">
+    <div id="body" className="container-100%">
       <div className="row">
         <div id="logo" className="col-md-2">
           <img src={logo} alt="logo" />
@@ -135,13 +163,13 @@ function Home() {
               </p>
             </div>
           </div>
-          <div className="page4">
-            <img src={image1} alt="img1" width="390vh" />
+          <div id="page4" className="page4">
+            <img src={image1} alt="img1" width="400vh" />
             <p style={{ marginTop: "20px" }}>
               This wallet address owns [Name of Artwork]
             </p>
           </div>
-          <div style={{ marginTop: "150px" }} className="page5text">
+          <div id="page5text" style={{ marginTop: "150%" }} className="page5text">
             <text className="page3HeaderText">Next Artpiece Title</text>
             <p style={{ fontSize: "20px" }}>by Next Artist</p>
           </div>
@@ -178,8 +206,8 @@ function Home() {
               velit.
             </p>
           </div>
-          <div style={{ marginTop: "200px" }} className="page4">
-            <img src={image1} alt="img1" width="390vh" />
+          <div id="page5Img" style={{ marginTop: "230%" }} className="page4">
+            <img src={image1} alt="img1" width="400vh" />
             <p style={{ marginTop: "20px" }}>
               This wallet address owns [Name of Artwork]
             </p>
