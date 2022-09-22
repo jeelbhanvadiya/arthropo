@@ -1,5 +1,5 @@
 import React, {  useState } from "react";
-import logo from "./Image/logo.jpg";
+import logo from "./Image/logo.svg";
 import image1 from "./Image/image 1.jpg";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./home.css";
@@ -18,13 +18,19 @@ function Home() {
       document.body.scrollTop > 50 ||
       document.documentElement.scrollTop > 50
     ) {
+      document.getElementById("header-top").style.position = "fixed";
+      document.getElementById("header-top").style.top = "-90px";
+      document.getElementById("header-top").style.backgroundColor = "white";
       document.getElementById("header").style.fontSize = "60px";
       document.getElementById("header").style.marginLeft = "-5px";
       document.getElementById("page2").style.marginTop = "1000px";
+
     } else {
+      document.getElementById("header-top").style.top = "50px";
+      document.getElementById("header-top").style.background = "transparent";
       document.getElementById("header").style.fontSize = "200px";
       document.getElementById("header").style.marginLeft = "-17px";
-      document.getElementById("page2").style.marginTop = "600px";
+      document.getElementById("page2").style.marginTop = "1000px";
       document.getElementById("page2").style.transitionDelay = "0s";
       document.getElementById("tx").style.fontSize = "60px";
       document.getElementById("tx").style.marginTop = "10px";
@@ -42,11 +48,11 @@ function Home() {
     if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
       document.getElementById("date").style.fontSize = "18px";
       document.getElementById("date").style.position = "fixed";
-      document.getElementById("date").style.top = "20px";
+      document.getElementById("date").style.top = "0px";
       document.getElementById("date").style.transition = "2.5s";
     }
     if(document.body.scrollTop > 300 || document.documentElement.scrollTop > 300){
-      document.getElementById("page2").style.marginTop = "380px";
+      document.getElementById("page2").style.marginTop = "600px";
     }
     if(document.body.scrollTop > 400 || document.documentElement.scrollTop > 400){
       document.getElementById("page2").style.marginTop = "-220px";
@@ -61,15 +67,15 @@ function Home() {
       setSection3("col-md-6");
     }
     if(document.body.scrollTop > 500 || document.documentElement.scrollTop > 500){
-      document.getElementById("page3").style.marginTop = "30%";
+      document.getElementById("page3").style.marginTop = "62%";
     }else if(document.body.scrollTop > 450 || document.documentElement.scrollTop > 450){
-      document.getElementById("page3").style.marginTop = "100%";
+      document.getElementById("page3").style.marginTop = "142%";
     }
     if (
       document.body.scrollTop > 650 ||
       document.documentElement.scrollTop > 650
     ) {
-      document.getElementById("page3").style.marginTop = "-106%";
+      document.getElementById("page3").style.marginTop = "-70%";
       setSection2("col-md-5");
       setSection3("col-md-5");
     }
@@ -85,10 +91,12 @@ function Home() {
         document.body.scrollTop > 750 ||
         document.documentElement.scrollTop > 750
     ) {
-      document.getElementById("page4").style.marginTop = "35%";
+      document.getElementById("header-top").style.height = "180px";
+      document.getElementById("page4").style.marginTop = "40%";
       document.getElementById("page4text").style.marginTop = "950px";
     }else if (document.body.scrollTop > 650 ||
         document.documentElement.scrollTop > 650){
+      document.getElementById("header-top").style.height = "260px";
       document.getElementById("page4").style.marginTop = "130%";
       document.getElementById("page4text").style.marginTop = "1600px";
     }
@@ -105,7 +113,8 @@ function Home() {
     ) {
       document.getElementById("page5Img").style.marginTop = "130%";
       document.getElementById("page5text").style.marginTop = "50%";
-    }else if(document.body.scrollTop > 800 ||
+    }
+    else if(document.body.scrollTop > 800 ||
         document.documentElement.scrollTop > 800){
       document.getElementById("page5Img").style.marginTop = "230%";
       document.getElementById("page5text").style.marginTop = "150%";
@@ -119,14 +128,16 @@ function Home() {
           <img src={logo} alt="logo" />
         </div>
         <div id="home" className={section2}>
-          <text id="header">Dystopia</text>
-          <div id="tx">
+          <div id="header-top">
+            <text id="header">Dystopia</text>
+          </div>
+            <div id="tx">
             <text>The Human Condition</text>
             <br />
             <text>on the Threshold</text>
             <br />
             <text>of the Digital Era</text>
-          </div>
+            </div>
           <div id="page2" className="page2">
             <text className="page2HeaderText">Featuring works of</text>
             <div className="page2text">
