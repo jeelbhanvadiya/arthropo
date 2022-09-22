@@ -12,6 +12,7 @@
 #section2{
     border-left: 1px solid #E7E7E7;
     padding: 0;
+    z-index: 1;
 }
 
 #logo img{
@@ -48,11 +49,16 @@
     position: fixed;
     top: 90%;
 }
+#header-top{
+    position: fixed;
+    top: 60px;
+    width: inherit;
+}
 
 
 .page2{
    margin-bottom: 200px;
-    margin-top: 450px;
+    margin-top: 1000px;
 }
 .page3HeaderText{
     font-size: 35px;

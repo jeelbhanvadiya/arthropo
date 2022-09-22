@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import logo from "./Image/logo.jpg";
-import image1 from "./Image/image 1.jpg";
+import logo from "./image/logo.svg";
+import artImage from "./image/art.jpg";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./home.css";
 
@@ -19,12 +19,17 @@ function Home() {
       document.documentElement.scrollTop > 50
     ) {
       document.getElementById("header").style.fontSize = "60px";
+      document.getElementById("header-top").style.position = "fixed";
+      document.getElementById("header-top").style.top = "-90px";
+      document.getElementById("header-top").style.backgroundColor = "white";
       document.getElementById("header").style.marginLeft = "-5px";
       document.getElementById("page2").style.marginTop = "1000px";
     } else {
       document.getElementById("header").style.fontSize = "200px";
       document.getElementById("header").style.marginLeft = "-17px";
-      document.getElementById("page2").style.marginTop = "600px";
+      document.getElementById("header-top").style.top = "60px";
+      document.getElementById("header-top").style.backgroundColor = "transparent";
+      document.getElementById("page2").style.marginTop = "1000px";
       document.getElementById("page2").style.transitionDelay = "0s";
       document.getElementById("tx").style.fontSize = "60px";
       document.getElementById("tx").style.marginTop = "10px";
@@ -46,10 +51,10 @@ function Home() {
       document.getElementById("date").style.transition = "2.5s";
     }
     if(document.body.scrollTop > 300 || document.documentElement.scrollTop > 300){
-      document.getElementById("page2").style.marginTop = "380px";
+      document.getElementById("page2").style.marginTop = "570px";
     }
     if(document.body.scrollTop > 400 || document.documentElement.scrollTop > 400){
-      document.getElementById("page2").style.marginTop = "-220px";
+      document.getElementById("page2").style.marginTop = "-100px";
     }
     if (
       document.body.scrollTop > 450 ||
@@ -61,9 +66,9 @@ function Home() {
       setSection3("col-md-6");
     }
     if(document.body.scrollTop > 500 || document.documentElement.scrollTop > 500){
-      document.getElementById("page3").style.marginTop = "30%";
+      document.getElementById("page3").style.marginTop = "50%";
     }else if(document.body.scrollTop > 450 || document.documentElement.scrollTop > 450){
-      document.getElementById("page3").style.marginTop = "100%";
+      document.getElementById("page3").style.marginTop = "140%";
     }
     if (
       document.body.scrollTop > 650 ||
@@ -85,31 +90,21 @@ function Home() {
         document.body.scrollTop > 750 ||
         document.documentElement.scrollTop > 750
     ) {
-      document.getElementById("page4").style.marginTop = "35%";
+      document.getElementById("header-top").style.height = "180px";
+      document.getElementById("page4").style.marginTop = "57%";
       document.getElementById("page4text").style.marginTop = "950px";
     }else if (document.body.scrollTop > 650 ||
         document.documentElement.scrollTop > 650){
-      document.getElementById("page4").style.marginTop = "130%";
+      document.getElementById("page4").style.marginTop = "140%";
       document.getElementById("page4text").style.marginTop = "1600px";
     }
     if (
         document.body.scrollTop > 850 ||
         document.documentElement.scrollTop > 850
     ) {
-      document.getElementById("page4").style.marginTop = "-100%";
+      document.getElementById("page4").style.marginTop = "-80%";
       document.getElementById("page4text").style.marginTop = "-200px";
     }
-    // if (
-    //     document.body.scrollTop > 900 ||
-    //     document.documentElement.scrollTop > 900
-    // ) {
-    //   document.getElementById("page5Img").style.marginTop = "130%";
-    //   document.getElementById("page5text").style.marginTop = "50%";
-    // }else if(document.body.scrollTop > 800 ||
-    //     document.documentElement.scrollTop > 800){
-    //   document.getElementById("page5Img").style.marginTop = "230%";
-    //   document.getElementById("page5text").style.marginTop = "150%";
-    // }
   };
 
   return (
@@ -119,7 +114,9 @@ function Home() {
           <img src={logo} alt="logo" />
         </div>
         <div id="home" className={section2}>
+          <div id="header-top">
           <text id="header">Dystopia</text>
+          </div>
           <div id="tx">
             <text>The Human Condition</text>
             <br />
@@ -164,7 +161,7 @@ function Home() {
             </div>
           </div>
           <div id="page4" className="page4">
-            <img src={image1} alt="img1" width="400vh" />
+            <img src={artImage} alt="img1" width="400vh" />
             <p style={{ marginTop: "20px" }}>
               This wallet address owns [Name of Artwork]
             </p>
@@ -207,7 +204,7 @@ function Home() {
             </p>
           </div>
           <div id="page5Img" style={{ marginTop: "700px" }} className="page4">
-            <img src={image1} alt="img1" width="400vh" />
+            <img src={artImage} alt="img1" width="400vh" />
             <p style={{ marginTop: "20px" }}>
               This wallet address owns [Name of Artwork]
             </p>
